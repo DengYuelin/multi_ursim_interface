@@ -1,0 +1,6 @@
+<launch>
+
+  <node name="moveit_interface" pkg="hardware_interface" type="moveit_interface" respawn="false" output="screen">
+  </node>
+
+</launch>

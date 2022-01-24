@@ -1,0 +1,16 @@
+<launch>
+
+  <include file="$(find ursim_control)/launch/single_ur5e_control.launch">
+    <arg name="robot_ip" value="192.168.56.101" />
+    <arg name="robot_name" value="left"/>
+  </include>
+
+  <include file="$(find ursim_control)/launch/single_ur5e_control.launch">
+    <arg name="robot_ip" value="192.168.56.102" />
+    <arg name="robot_name" value="right"/>
+    <arg name="reverse_port" value="50011" doc="Port that will be opened by the driver to allow direct communication between the driver and the robot controller."/>
+    <arg name="script_sender_port" value="50012" doc="The driver will offer an interface to receive the program's URScript on this port. If the robot cannot connect to this port, `External Control` will stop immediately."/>
+    <arg name="trajectory_port" value="50013" doc="Port that will be opened by the driver to allow trajectory forwarding."/>
+  </include>
+
+</launch>

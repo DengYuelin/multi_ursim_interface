@@ -4,18 +4,21 @@ This repo creates a interface to control multiple ur5e arms using Moveit!
 ## Setup
 ### Install Universal_Robots_ROS_Driver
 Follow the instructions [here](https://github.com/UniversalRobots/Universal_Robots_ROS_Driver) to install the ROS driver for UR arms.
+
+### The interface package
+Clone and build this repo in desired catkin_ws.
 ### URSim
 #### Create docker container for URSim
 ```bash
 docker pull universalrobots/ursim_e-series
-cd dockerursim
+cd multi_ursim_interface/dockerursim
 docker build -t my/dockerursim .
 docker network create --subnet=192.168.56.0/24 ursim_net
 ```
 
 #### Change Firewall settings
 ```bash
-sudo ufw status
+sudo ufw status # if active
 sudo ufw allow 50001 # reverse_port for robot 1
 sudo ufw allow 50002 # script_sender_port for robot 1
 sudo ufw allow 50003 # trajectory_port for robot 1
@@ -24,9 +27,6 @@ sudo ufw allow 50012 # script_sender_port for robot 2
 sudo ufw allow 50013 # trajectory_port for robot 2
 ```
 Allows the URSim inside docker container to access host via specific ports, specified in the [launch file](ursim_control/launch/single_ur5e_control.launch).
-
-### The interface package
-Clone and build this repo in desired catkin_ws.
 
 ## Execution 
 

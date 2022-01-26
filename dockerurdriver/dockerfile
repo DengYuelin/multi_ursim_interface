@@ -1,0 +1,17 @@
+ARG FROM_IMAGE=ros:melodic
+ARG OVERLAY_WS=/opt/ros/overlay_ws
+
+# multi-stage for caching
+FROM $FROM_IMAGE AS cacher
+
+# clone overlay source
+ARG OVERLAY_WS
+WORKDIR $OVERLAY_WS/src
+RUN echo "\
+    repositories: \n\
+    ros2/demos: \n\
+    type: git \n\
+    url: https://github.com/UniversalRobots/Universal_Robots_ROS_Driver.git \n\
+    version: ${ROS_DISTRO} \n\
+    " > ../overlay.repos
+RUN vcs import ./ < ../overlay.repos

@@ -43,7 +43,7 @@ To  view the GUI: http://localhost:6081/vnc.html?host=localhost&port=6081
 
 Remember to set the correct **Host IP** and **Custom port** (set to corresponding script_sender_port) in URSim's **Installation -> URCaps -> External Control** for each robot.
 
-To run the interface for both robots:
+To run the interface for a single robots:
 ```bash
 roslaunch ursim_control single_ur5e_control.launch robot_name:=robot1 robot_ip:=192.168.56.101 reverse_port:=50001 script_sender_port:=50002 trajectory_port:=50003
 ```

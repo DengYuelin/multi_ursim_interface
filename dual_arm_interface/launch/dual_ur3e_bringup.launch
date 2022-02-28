@@ -1,11 +1,11 @@
 <launch>
 
-  <include file="$(find ursim_control)/launch/single_ur5e_control.launch">
+  <include file="$(find ursim_control)/launch/single_ur3e_bringup.launch">
     <arg name="robot_ip" value="192.168.56.101" />
     <arg name="robot_name" value="left"/>
   </include>
 
-  <include file="$(find ursim_control)/launch/single_ur5e_control.launch">
+  <include file="$(find ursim_control)/launch/single_ur3e_bringup.launch">
     <arg name="robot_ip" value="192.168.56.102" />
     <arg name="robot_name" value="right"/>
     <arg name="reverse_port" value="50011" doc="Port that will be opened by the driver to allow direct communication between the driver and the robot controller."/>

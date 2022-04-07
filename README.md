@@ -61,6 +61,10 @@ To run the interface for one of the robots:
 roslaunch ursim_control single_ur5e_control.launch robot_name:=robot1 robot_ip:=192.168.56.101 reverse_port:=50001 script_sender_port:=50002 trajectory_port:=50003
 ```
 
+```bash
+roslaunch ursim_control single_ur3e_bringup.launch robot_name:=left robot_ip:=192.168.0.102 reverse_port:=50001 script_sender_port:=50002 trajectory_port:=50003
+```
+
 Follow the instructions to start the robot, if you see
 
 ```bash
